@@ -1,0 +1,21 @@
+class Card
+{
+
+	String name;
+	int[] effects;
+	String flavor;
+	static boolean counter;
+	//picture...?
+
+	public Card(String name, int[] effs)
+	{
+		this.name = name;
+		counter = false;
+	}
+
+	void dealDamage(int dmg, CreatureCard target)
+	{
+		target.takeDamgage(int dmg);
+	}
+
+}
