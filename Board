@@ -1,0 +1,16 @@
+class Board
+{
+	Card[,] board;
+
+	public Board()
+	{
+		board = new Card[4,10];
+	}
+
+	void battle(Card[] attacker, Card target)
+	{
+		int totDmg = 0;
+		for(int x = 0; x < attacker.length; x++)
+			attacker[x].dealDamage(target);
+	}
+}
