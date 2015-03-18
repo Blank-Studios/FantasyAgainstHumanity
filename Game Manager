@@ -1,0 +1,13 @@
+class GameMan
+{
+	Player one;
+	Player two;
+	Board field;
+
+	Start()
+	{
+		one = new Player(/* player 1 ID */);
+		two = new Player(/*player 2 ID */);
+		field = new Board();
+	}
+}
