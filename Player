@@ -1,0 +1,54 @@
+class Player
+{
+	ArrayList<Card> hand;
+	Card[] subs;
+	Card[] xfields;
+	Card[] fields;
+	int slots;
+	int mana;
+	int currentMP;
+	ArrayList<Card> deck;
+
+	Start(){
+
+	}
+
+	public Player()
+	{
+		hand = new ArrayList<Card>();
+		deck = new ArrayList<Card>(/* instantiate with player's deck choice */);
+		subs = new Card[8];
+		xfields = new Card[6];
+		fields = new Card[4];
+		slots = 0;
+		mana = 0;
+		currentMP = mana;
+
+		draw(5);
+	}
+
+	public Player(int id)
+	{
+		//check database for player's deck. Return deckID
+		hand = new Card[10];
+		deck = new Card[deckID];
+		subs = new Card[8];
+		xfields = new Card[6];
+		fields = new Card[4];
+		slots = 0;
+
+		draw(5);
+	}
+
+	void shuffle()
+	{
+		Card[] 
+
+	void draw(int n)
+	{
+		for (int x = 0; x < n; x++)
+		{
+			hand.add(deck.remove(0));
+		}
+	}
+}
