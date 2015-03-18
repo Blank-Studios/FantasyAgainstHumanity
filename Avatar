@@ -1,0 +1,20 @@
+class Avatar : CreatureCard
+{
+	String name;
+	String race;
+	int health;
+	int currentHP;
+	int shields;
+	int[] effects;
+	String flavor;
+
+	public Avatar(String name, int HP, int sld, int[] effs, String flav)
+	{
+		this.name = name;
+		health = hp;
+		currentHP = health;
+		shields = sld;
+		effects = effs;
+		flavor = flv;
+	}
+}
