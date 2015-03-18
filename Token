@@ -1,0 +1,5 @@
+//Token Creature
+class creatureToken : CreatureCard
+{
+	//mimics CC class. Used to differentiate creatures from tokens.
+}
