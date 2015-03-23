@@ -1,21 +1,145 @@
-class Card
-{
+using UnityEngine;
+using System.Collections;
 
-	String name;
-	int[] effects;
-	String flavor;
-	static boolean counter;
-	//picture...?
+public class Card : MonoBehaviour {
+	protected enum CardEffects{Covert, Double_Strike, Flying, Range, Quick_Strike};
 
-	public Card(String name, int[] effs)
-	{
+	protected int damage;
+	protected int shield;
+	protected int hp;
+	protected int speed;
+	protected int cost;
+	
+	protected int damageModifier = 0;
+	protected int shieldModifier = 0;
+	protected int hpModifier = 0;
+	protected int speedModifier = 0;
+	protected int costModifier = 0;
+	
+	protected CardEffects[] effects;
+	
+	protected string name;
+	protected string race;
+	protected string description;
+
+	static bool counter;
+	
+	protected void createCard(string name, string race, int attack, int shield, int hp, int speed, string flav, CardEffects[] effects){
 		this.name = name;
-		counter = false;
+		this.race = race;
+		damage = attack;
+		this.shield = shield;
+		this.hp = hp;
+		this.speed = speed;
+		description = flav;
+		this.effects = effects;
 	}
 
-	void dealDamage(int dmg, CreatureCard target)
-	{
-		target.takeDamgage(int dmg);
+	/*
+	 * 
+	 * 
+	 * Return String Variables 
+	 * 
+	 */
+	public string getName(){
+		return name;
+	}
+
+	public string getRace(){
+		return race;
+	}
+
+	public string getDescription(){
+		return description;
+	}
+
+	/*
+	 * 
+	 * 
+	 * Return Int Variables 
+	 * 
+	 */
+	public int getDamage(){
+		return damage + damageModifier;
+	}
+	
+	public int getShield(){
+		return shield + shieldModifier;
+	}
+	
+	public int getHP(){
+		return hp + hpModifier;
+	}
+	
+	public int getSpeed(){
+		return speed + speedModifier;
+	}
+	
+	public int getCost(){
+		return cost + costModifier;
+	}
+
+	/*
+	 * 
+	 * 
+	 * Adjust Modifiers 
+	 * 
+	 */
+	public void adjustDamageModifier(int adjust){
+		damageModifier += adjust;
+	}
+	
+	public void adjustShieldModifier(int adjust){
+		shieldModifier += adjust;
+	}
+	
+	public void adjustHPModifier(int adjust){
+		hpModifier += adjust;
+	}
+	
+	public void adjustCostModifier(int adjust){
+		costModifier += adjust;
+	}
+	
+	/*
+	 * 
+	 * 
+	 * Get Effects
+	 * 
+	 */
+	protected CardEffects[] getEffects(){
+		return effects;
+	}
+
+	/*
+	 * 
+	 * 
+	 * Set Modifiers
+	 * 
+	 */
+	public void setDamageModifier(int modifier){
+		damageModifier = modifier;
+	}
+	
+	public void setShieldModifier(int modifier){
+		shieldModifier = modifier;
+	}
+	
+	public void setHPModifier(int modifier){
+		hpModifier = modifier;
+	}
+	
+	public void setCostModifier(int modifier){
+		costModifier = modifier;
+	}
+
+	/*
+	 * 
+	 * Attack a Card
+	 * 
+	 */
+	public void attackCard(Card defender){
+
 	}
 
 }
