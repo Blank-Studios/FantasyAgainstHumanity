@@ -1,20 +1,68 @@
-class Avatar : CreatureCard
-{
-	String name;
-	String race;
+using UnityEngine;
+using System.Collections;
+
+public class AvatarCard : MonoBehaviour {
+
+	string name;
+	string race;
 	int health;
 	int currentHP;
 	int shields;
 	int[] effects;
-	String flavor;
+	string flavor;
 
-	public Avatar(String name, int HP, int sld, int[] effs, String flav)
-	{
+	int hpModifier = 0;
+	int shieldModifier = 0;
+
+	// Use this for initialization
+	void Start () {
+	
+	}
+
+
+	public void Avatar(string name, int HP, int shield, int[] effs, string flav){
 		this.name = name;
-		health = hp;
-		currentHP = health;
-		shields = sld;
+		health = HP;
+		currentHP = HP;
+		shields = shield;
+		flavor = flav;
 		effects = effs;
-		flavor = flv;
+	}
+	
+	// Update is called once per frame
+	void Update () {
+	
+	}
+
+	public string getFlavorText(){
+		return flavor;
+	}
+
+	public string getName(){
+		return name;
+	}
+
+	public string getRace(){
+		return race;
+	}
+
+	public int getCurrentHealth(){
+		return currentHP + hpModifier;
+	}
+
+	public int getShields(){
+		return shields + shieldModifier;
+	}
+
+	public int[] effects(){
+		return effects;
+	}
+
+	public void setHPModifier(int mod){
+		hpModifier = mod;
+	}
+
+	public void setShieldModifier(int mod){
+		shieldModifier = mod;
 	}
 }
