@@ -1,0 +1,11 @@
+using UnityEngine;
+using System.Collections;
+
+public class CreatureCard : Card {
+	
+	// Use this for initialization
+	void Start () {
+		
+	}
+
+}
