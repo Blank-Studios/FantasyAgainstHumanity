@@ -54,7 +54,7 @@ public class AvatarCard : MonoBehaviour {
 		return shields + shieldModifier;
 	}
 
-	public int[] effects(){
+	public int[] getEffects(){
 		return effects;
 	}
 
