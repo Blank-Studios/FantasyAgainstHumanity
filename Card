@@ -2,6 +2,7 @@ using UnityEngine;
 using System.Collections;
 
 public class Card : MonoBehaviour {
+
 	protected enum CardEffects{Covert, Double_Strike, Flying, Range, Quick_Strike};
 
 	protected int damage;
@@ -9,12 +10,16 @@ public class Card : MonoBehaviour {
 	protected int hp;
 	protected int speed;
 	protected int cost;
+	protected int moves;
+
+	protected int movesPerTurnReset;
 	
 	protected int damageModifier = 0;
 	protected int shieldModifier = 0;
 	protected int hpModifier = 0;
 	protected int speedModifier = 0;
 	protected int costModifier = 0;
+	protected int movesModifier = 0;
 	
 	protected CardEffects[] effects;
 	
@@ -24,7 +29,9 @@ public class Card : MonoBehaviour {
 
 	static bool counter;
 	
-	protected void createCard(string name, string race, int attack, int shield, int hp, int speed, string flav, CardEffects[] effects){
+	protected void createCard(string name, string race, int movesPerTurn, int attack, int shield, int hp, int speed, string flav, CardEffects[] effects){
+		movesPerTurnReset = movesPerTurn;
+		moves = movesPerTurnReset;
 		this.name = name;
 		this.race = race;
 		damage = attack;
@@ -79,6 +86,10 @@ public class Card : MonoBehaviour {
 		return cost + costModifier;
 	}
 
+	public int getMoves(){
+		return moves + movesModifier;
+	}
+
 	/*
 	 * 
 	 * 
@@ -100,7 +111,11 @@ public class Card : MonoBehaviour {
 	public void adjustCostModifier(int adjust){
 		costModifier += adjust;
 	}
-	
+
+	public void adjustMoveModifier(int adjust){
+		movesModifier += adjust;
+	}
+
 	/*
 	 * 
 	 * 
@@ -133,13 +148,33 @@ public class Card : MonoBehaviour {
 		costModifier = modifier;
 	}
 
+	public void setMovesModifier(int modifier){
+		movesModifier = modifier;
+	}
+
 	/*
 	 * 
 	 * Attack a Card
 	 * 
 	 */
 	public void attackCard(Card defender){
-
+		moves--;
 	}
 
+	/*
+	 * 
+	 * Reset the card's number of moves
+	 * 
+	 * */ 
+	public void resetMoveCount(){
+		moves = movesPerTurnReset;
+	}
+
+	/*
+	 * Can The Card make a move?
+	 * 
+	 * */
+	public bool canMove(){
+		return moves + movesModifier > 0;
+	}
 }
