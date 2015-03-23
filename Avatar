@@ -1,14 +1,14 @@
 using UnityEngine;
 using System.Collections;
 
-public class AvatarCard : MonoBehaviour {
+public class AvatarCard : Card {
 
 	string name;
 	string race;
 	int health;
 	int currentHP;
 	int shields;
-	int[] effects;
+	CardEffects[] effects;
 	string flavor;
 
 	int hpModifier = 0;
@@ -20,7 +20,7 @@ public class AvatarCard : MonoBehaviour {
 	}
 
 
-	public void Avatar(string name, int HP, int shield, int[] effs, string flav){
+	protected void Avatar(string name, int HP, int shield, CardEffects[] effs, string flav){
 		this.name = name;
 		health = HP;
 		currentHP = HP;
@@ -54,7 +54,7 @@ public class AvatarCard : MonoBehaviour {
 		return shields + shieldModifier;
 	}
 
-	public int[] getEffects(){
+	protected CardEffects[] getEffects(){
 		return effects;
 	}
 
