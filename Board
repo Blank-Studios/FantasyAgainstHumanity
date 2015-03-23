@@ -1,16 +1,8 @@
-class Board
-{
-	Card[,] board;
+using UnityEngine;
+using System.Collections;
 
-	public Board()
-	{
-		board = new Card[4,10];
-	}
+public class Board : MonoBehaviour {
 
-	void battle(Card[] attacker, Card target)
-	{
-		int totDmg = 0;
-		for(int x = 0; x < attacker.length; x++)
-			attacker[x].dealDamage(target);
-	}
+	public Transform[] cardLocations;
+	
 }
