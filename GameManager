@@ -1,0 +1,51 @@
+using UnityEngine;
+using System.Collections;
+
+public class GameManager : MonoBehaviour {
+
+	GameObject selected;
+
+	public Player[] players;
+
+	public Transform selectedCardPos1;
+	public Transform selectedCardPos2;
+
+	// Update is called once per frame
+	void Update () {
+		if (Input.touchCount == 1) {
+			clickGameObject(Input.GetTouch(0).position);
+		}
+		else if (Input.GetMouseButtonDown (0)) {
+			clickGameObject(Input.mousePosition);
+		}
+	}
+
+	void clickGameObject(Vector3 position){
+		GameObject clicked = getGameObjectFromPosition (position);
+
+		if (clicked == selected) {
+			
+		}
+	}
+
+	GameObject getGameObjectFromPosition(Vector3 inputPosition) {
+		//Ray ray = Camera.main.ScreenPointToRay(inputPosition);
+		
+		Vector2 pos = new Vector2(inputPosition.x, inputPosition.y);
+		Vector2 inputPos = Camera.main.ScreenToWorldPoint(pos);
+		
+		RaycastHit2D hitInfo = Physics2D.Raycast(inputPos, Vector2.zero);
+		// RaycastHit2D can be either true or null, but has an implicit conversion to bool, so we can use it like this
+		if(hitInfo)
+		{
+			return hitInfo.transform.gameObject;
+		}
+		
+		return null;
+	}
+
+	public GameObject getSelected(){
+		return selected;
+	}
+
+}
