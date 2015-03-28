@@ -10,6 +10,7 @@ interface Location
   }
   
   //give location information
+  int[] getLocation(){
   return loc;
   }
 }
