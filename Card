@@ -29,7 +29,9 @@ public class Card : MonoBehaviour {
 
 	static bool counter;
 	
-	protected void createCard(string name, string race, int movesPerTurn, int attack, int shield, int hp, int speed, string flav, CardEffects[] effects){
+	static Location loc;
+	
+	protected void createCard(string name, string race, int movesPerTurn, int attack, int shield, int hp, int speed, string flav, CardEffects[] effects, Location loc){
 		movesPerTurnReset = movesPerTurn;
 		moves = movesPerTurnReset;
 		this.name = name;
@@ -40,6 +42,7 @@ public class Card : MonoBehaviour {
 		this.speed = speed;
 		description = flav;
 		this.effects = effects;
+		this.loc = loc;
 	}
 
 	/*
