@@ -1,4 +1,4 @@
-class Location
+interface Location
 {
   int row, column;
   int[] loc;
