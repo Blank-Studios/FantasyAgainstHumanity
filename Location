@@ -1,0 +1,15 @@
+class Location
+{
+  int row, column;
+  int[] loc;
+  
+  public Location(int row, int col){
+  this.row = row;
+  column = col;
+  loc = new int[]{row,col};
+  }
+  
+  //give location information
+  return loc;
+  }
+}
