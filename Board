@@ -5,4 +5,9 @@ public class Board : MonoBehaviour {
 
 	public Transform[] cardLocations;
 	
+	int[.] board = new int[8,6];
+	
+	Card add(Card card, boolean isMonster, int pos, int player){
+		//add card to position board[pos,player] based on isMonster
+	
 }
