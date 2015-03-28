@@ -47,5 +47,15 @@ public class GameManager : MonoBehaviour {
 	public GameObject getSelected(){
 		return selected;
 	}
+	
+	void dealDamage(card source, int damage, Card target){
+		if (damage - target.shield > 0)
+			target.health = damage - target.shield;
+		else
+			target.shield = damage - target.shield;
+	}
+	
+	void destroy(Card target)
+		//remove target from field
 
 }
